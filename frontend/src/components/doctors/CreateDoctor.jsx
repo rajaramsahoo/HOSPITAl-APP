@@ -65,7 +65,7 @@ const CreateDoctor = () => {
       console.log(res.data);
 
       toast.success("Doctor profile was created");
-      navigate("/deandashboard/doctors");
+      navigate("/doctors");
       setDoctorData({
         name: "",
         userName: "",
@@ -188,7 +188,7 @@ const CreateDoctor = () => {
           </button>
           <button
             className="btn"
-            onClick={() => navigate("/deandashboard/doctors")}
+            onClick={() => navigate("/doctors")}
           >
             Cancel
           </button>

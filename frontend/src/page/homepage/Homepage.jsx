@@ -186,6 +186,59 @@ const Homepage = () => {
     }
   }
   // ================DOCTOR PART END====================
+  // ================RECEPTIONIST PART START====================
+  const [receptionistData, setReceptionistData] = useState({
+    email: "",
+    password: "",
+  });
+
+  function onChangeHandlerReceptionist(e) {
+    console.log(e.target.value);
+    setReceptionistData({
+      ...receptionistData,
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  async function onClickHandlerReceptionistlogin(e) {
+    try {
+      e.preventDefault();
+      console.log(deanData);
+      if (!receptionistData.email.trim() || !receptionistData.password.trim()) {
+        return window.alert("please pass Email and password");
+      }
+      const res = await axios.post("api/receptionist/login", receptionistData);
+      console.log(res.data);
+      localStorage.setItem("token", JSON.stringify({ token: res.data.token }));
+      localStorage.setItem(
+        "auth",
+        JSON.stringify({ auth: res.data.receptionistFound })
+      );
+
+      navigate("/receptionistdashboard");
+    } catch (error) {
+      console.log(error);
+      let errorString = "";
+      if (error.response.data.errors) {
+        error.response.data.errors.forEach((element) => {
+          errorString += `${element.msg}`;
+          // showAlert({
+          //     type : "err",
+          //     msg: errorString
+          // })
+          window.alert(errorString);
+        });
+      } else {
+        errorString = error.response.data.err;
+        // showAlert({
+        //   type: "error",
+        //   msg: errorString
+        // })
+        window.alert(errorString);
+      }
+    }
+  }
+  // ================RECEPTIONIST PART END====================
 
   return (
     <>
@@ -329,20 +382,29 @@ const Homepage = () => {
                       onClick={() => setResModal(false)}
                     />
                     <h3>
-                      Doctor <span>Login</span>
+                      Recepation <span>Login</span>
                     </h3>
                     <input
                       type="email"
+                      name="email"
                       placeholder="Your Email Id"
                       className="box"
+                      onChange={onChangeHandlerReceptionist}
                     />
                     <input
                       type="password"
-                      placeholder="Patient Address"
+                      placeholder="Your Password"
                       className="box"
+                      name="password"
+                      onChange={onChangeHandlerReceptionist}
                     />
 
-                    <button className="btn">Login</button>
+                    <button
+                      className="btn"
+                      onClick={onClickHandlerReceptionistlogin}
+                    >
+                      Login
+                    </button>
                   </form>
                 </Modal>
               </li>

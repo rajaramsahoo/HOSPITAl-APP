@@ -3,7 +3,10 @@ import Header from "../header/DeanHeader";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import DoctorHeader from "../header/DoctorHeader";
 const Receptionists = () => {
+  const doctordata = JSON.parse(localStorage.getItem('auth'));
+
   let navigate = useNavigate();
 
   const [allReceptionist, setAllReceptionist] = useState([]);
@@ -27,9 +30,10 @@ const Receptionists = () => {
   useEffect(() => {
     allReceptionistData();
   }, []);
-  
+
   function onClickHandle(_id, name, gender, email, mobile, address) {
-    navigate(`/deandashboard/receptionists/${_id}`, {
+    if(doctordata.auth.role === "doctor"){
+         navigate(`/receptionists/${_id}`, {
       state: {
         _id,
         name,
@@ -38,11 +42,13 @@ const Receptionists = () => {
         mobile,
         address,
       },
-    });
+    })
+    }
+ 
   }
   return (
     <>
-      <Header />
+      {doctordata.auth.role === "doctor" ? <Header /> : <DoctorHeader />}
       <div className="icons-container1">
         {allReceptionist &&
           allReceptionist?.map((receptionist, index) => (

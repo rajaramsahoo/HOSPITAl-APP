@@ -36,7 +36,7 @@ const Doctors = () => {
     address,
     department
   ) {
-    navigate(`/deandashboard/doctors/${_id}`, {
+    navigate(`/doctors/${_id}`, {
       state: {
         _id,
         name,

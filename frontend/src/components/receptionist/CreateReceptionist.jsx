@@ -32,18 +32,18 @@ const CreateReceptionist = () => {
       let token = JSON.parse(localStorage.getItem("token")).token;
 
       e.preventDefault();
-        if (
-          !receptionistData.name.trim() ||
-          !receptionistData.userName.trim() ||
-          !receptionistData.gender.trim() ||
-          !receptionistData.email.trim() ||
-          !receptionistData.mobile.trim() ||
-          !receptionistData.address.trim() ||
-          !receptionistData.password.trim() ||
-          !receptionistData.addedBy.trim()
-        ) {
-          return window.alert("please fill up properly");
-        }
+      if (
+        !receptionistData.name.trim() ||
+        !receptionistData.userName.trim() ||
+        !receptionistData.gender.trim() ||
+        !receptionistData.email.trim() ||
+        !receptionistData.mobile.trim() ||
+        !receptionistData.address.trim() ||
+        !receptionistData.password.trim() ||
+        !receptionistData.addedBy.trim()
+      ) {
+        return window.alert("please fill up properly");
+      }
       // console.log(userData)
       const res = await axios.post(
         "/api/receptionist/signup",
@@ -57,7 +57,8 @@ const CreateReceptionist = () => {
       console.log(res.data);
 
       toast.success("Receptionist profile was created");
-      navigate("/deandashboard/receptionists");
+      If(dea);
+      navigate("/receptionists");
       setReceptionistData({
         name: "",
         userName: "",
@@ -163,10 +164,7 @@ const CreateReceptionist = () => {
           <button className="btn" onClick={onClickHandler}>
             Submit
           </button>
-          <button
-            className="btn"
-            onClick={() => navigate("/deandashboard/receptionists")}
-          >
+          <button className="btn" onClick={() => navigate("/receptionists")}>
             Cancel
           </button>
         </form>

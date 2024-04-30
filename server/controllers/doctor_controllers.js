@@ -112,7 +112,8 @@ export const doctorLogin = async (req, res) => {
         email: doctorFound.email,
         mobile: doctorFound.mobile,
         address: doctorFound.address,
-        department:doctorFound.department
+        department:doctorFound.department,
+        role:doctorFound.role
       }, });
   } catch (error) {
     console.log(error);

@@ -86,7 +86,18 @@ export const receptionistLogin = async (req, res) => {
     if (!matchPassword) {
       return res.status(401).json({ error: "Incorrect password" });
     }
-    res.status(200).json({ msg: `${emailFound.name} was login successfully` });
+    res.status(200).json({
+      msg: `${emailFound.name} was login successfully`,
+      receptionistFound: {
+        _id: emailFound._id,
+        name: emailFound.name,
+        gender: emailFound.gender,
+        email: emailFound.email,
+        mobile: emailFound.mobile,
+        address: emailFound.address,
+        role: emailFound.role,
+      },
+    });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "something error in login" });

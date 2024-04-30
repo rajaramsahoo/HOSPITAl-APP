@@ -99,6 +99,7 @@ export const deanLogin = async (req, res) => {
         email: deanFound.email,
         mobile: deanFound.mobile,
         address: deanFound.address,
+        role:deanFound.role
       },
     });
   } catch (error) {

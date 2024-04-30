@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 const Header = () => {
-  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -40,14 +39,14 @@ const Header = () => {
             </Link>
             <ul className="dropdown-menu">
               <li>
-                <Link className="dropdown-item" to="/deandashboard/doctors">
+                <Link className="dropdown-item" to="/doctors">
                   Doctors
                 </Link>
               </li>
               <li>
                 <Link
                   className="dropdown-item"
-                  to={"/deandashboard/doctors/createdoctor"}
+                  to={"/doctors/createdoctor"}
                 >
                   Create Doctor
                 </Link>
@@ -67,7 +66,7 @@ const Header = () => {
               <li>
                 <Link
                   className="dropdown-item"
-                  to={"/deandashboard/receptionists"}
+                  to={"/receptionists"}
                 >
                   Receptionist
                 </Link>
@@ -75,7 +74,7 @@ const Header = () => {
               <li>
                 <Link
                   className="dropdown-item"
-                  to={"/deandashboard/receptionist/createreceptionist"}
+                  to={"/receptionist/createreceptionist"}
                 >
                   Create Receptionist
                 </Link>

@@ -17,7 +17,7 @@ const Patients = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(res.data);
+      // console.log(res.data);
       setAllPatient(res.data);
     } catch (error) {
       console.log(error);
