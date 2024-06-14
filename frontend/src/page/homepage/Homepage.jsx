@@ -250,7 +250,7 @@ const Homepage = () => {
           <a href="#home">Home</a>
           <a href="#services">Services</a>
           <a href="#about">About</a>
-          <a href="#doctors">Doctors</a>
+          <a href="#doctors"> Our Doctors</a>
           <a href="#books">Book</a>
           <a href="#review">Review</a>
           <a href="#blogs">Blogs</a>

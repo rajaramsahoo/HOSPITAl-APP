@@ -13,9 +13,19 @@ import Doctordashboard from './page/dashboard/Doctordashboard';
 import OnlyViewDoctors from "./components/doctors/OnlyViewDoctors";
 import Receptionistdashboard from "./page/dashboard/Receptionistdashboard";
 import CreatePatient from "./components/patient/CreatePatient";
+// import { useNavigate } from "react-router-dom";
 function App() {
-
-
+//private route for dean which contain role === dean ,,, <privateDeanRoute>
+// const navigate = useNavigate()
+// const privateRoute = ({}) => {
+//   const auth = JSON.parse(localStorage.getItem('auth'))
+//   if(auth.role === "dean"){
+//     navigate("/")
+//   }
+//   else if(auth.role === "doctor"){}
+//   else if(auth.role === "doctor"){}
+//   else navigate("/")
+// }
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
